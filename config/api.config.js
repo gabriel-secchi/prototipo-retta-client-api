@@ -1,11 +1,15 @@
 var express = require('express'); //framework
 var consign = require('consign'); //Modulo de carregamento de dados parao app
 var bodyParser = require('body-parser');  //middleware para converter e agilizar oprocesso de captação de parâmetros
+
+//Modulo de carregamento e leitura do arquivo .env
+require('dotenv-safe').load(); 
+
 const config = require('./config.json');
 //var MyRedis  = require('../model/MyRedis')
 //var DB = [];
 
-const environment = process.env.NODE_ENV || 'development';
+const environment = process.env.ENVIRONMENT || 'development';
 global.gConfig = config[environment];
 
 var api = express();
